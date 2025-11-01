@@ -24,7 +24,7 @@ O professor orientou que o projeto fosse dividido em quatro arquivos:
 
 ### Como usar:
 
-Basta rodar o arquivo Python correspondente a cada trabalho. O programa interage com você, pedindo os itens a inserir e quantos deseja remover, mostrando sempre o estado atual da fila.
+Basta rodar o arquivo Python da estrutura desejada. O programa já insere e remove os valores já incluídos e exibe sempre o estado atual da estrutura.
 
 ---
 
