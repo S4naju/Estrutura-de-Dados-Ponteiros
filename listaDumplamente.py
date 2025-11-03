@@ -1,7 +1,7 @@
 class NoDuplo:
     def __init__(self, valor):
-        self.valor = valor #dado q o nó armazena
-        self.proximo = None #ponteiro p o próximo nó
+        self.valor = valor
+        self.proximo = None 
         self.anterior = None #ponteiro p nó anterior
 
 class ListaDuplamente:
@@ -10,11 +10,11 @@ class ListaDuplamente:
         self.fim = None #ponteiro p o último nó
 
     def is_empty(self):
-        return self.inicio is None #retorna TRUE se a lista estiver vazia e falso se n tiver
+        return self.inicio is None 
 
     def inserirFinal (self, valor):
         novoNo = NoDuplo(valor)
-        if self.inicio is None: #se a lista tiver vazia o inicio e o fim apontam p onovoNo
+        if self.inicio is None: #se a lista tiver vazia o inicio e o fim apontam p novoNo
             self.inicio = novoNo
             self.fim = novoNo
         else:
@@ -23,21 +23,21 @@ class ListaDuplamente:
             self.fim = novoNo #fim da lista é atualizado - novoNo
     
     def removerValor(self, valor):
-        noAtual = self.inicio #noAtual aponta pro primeiro nó da lista
+        noAtual = self.inicio #noAtual aponta pro primeiro nó da lista 
         while noAtual is not None and noAtual.valor != valor: #se ainda tiver nós na lista e o valor do nó atual for diferente do valor...
             noAtual = noAtual.proximo #noAtual aponta pro próximo nó 
         
         if noAtual is None: 
-            print(f"valor {valor} não encontrado na lista!a!\n")
+            print(f"valor {valor} não encontrado na lista!\n")
             return
 
-        if noAtual.anterior is not None: #caso o nó n for o primeiro...
-            noAtual.anterior.proximo = noAtual.proximo #nó anterior passa a apontar p o próximo do atual
+        if noAtual.anterior is not None: #se o nó n for o primeiro 
+            noAtual.anterior.proximo = noAtual.proximo #o anterior vai "pular" o removido e vai apontar pro próximo nó
         else:
-            self.inicio = noAtual.proximo #removendo o inicio da lista
+            self.inicio = noAtual.proximo #se for o primeiro nó, remove
 
         if noAtual.proximo is not None: #caso o nó n for o último...
-            noAtual.proximo.anterior = noAtual.anterior #o próximo passa apontar p o anterior do atual
+            noAtual.proximo.anterior = noAtual.anterior #o próximo vai "pular" o removido e passa apontar p o nó anterior 
         else:
             self.fim = noAtual.anterior #removendo o fim da lista
         

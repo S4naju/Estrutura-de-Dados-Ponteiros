@@ -1,18 +1,18 @@
 class No:
     def __init__(self, valor):
-        self.valor = valor #dado q o nó armazena
-        self.proximo = None #ponteiro p o próximo nó
+        self.valor = valor 
+        self.proximo = None 
 
 class ListaEncadeada:
     def __init__(self):
-        self.inicio = None #inicio começa valendo nada
+        self.inicio = None 
     
     def is_empty(self):
-        return self.inicio is None #retorna TRUE se a lista estiver vazia e falso se n tiver
+        return self.inicio is None 
 
     def inserirInicio (self, valor):
         novoNo = No(valor)
-        novoNo.proximo = self.inicio #novoNo.proximo aponta pro nó q atualmente é o primeiro - self.inicio
+        novoNo.proximo = self.inicio #aponta pro antigo primeiro nó
         self.inicio = novoNo #self.incio se torna o novoNo
 
     def inserirFinal(self, valor):
@@ -21,10 +21,10 @@ class ListaEncadeada:
             self.inicio = novoNo #...self.incio se torna o novoNo
             return
         
-        #se a fila n estiver vasia...
+        #se a fila n estiver vazia...
         noAtual = self.inicio #noAtual aponta pro primeiro nó da lista
-        while noAtual.proximo is not None: #quando noAtual é None
-            noAtual = noAtual.proximo #noAtual é o último nó da lista
+        while noAtual.proximo is not None: #quando tiver um próximo nó...
+            noAtual = noAtual.proximo #...nó atual aponta por próximo nó
 
         #no entanto, se n existir um próximo nó...
         noAtual.proximo = novoNo #...o noAtual é o novoNo e é o último nó da lista tbm
@@ -33,7 +33,7 @@ class ListaEncadeada:
         if self.is_empty(): #se tiver vazia nada é feito
             return
         
-        if self.inicio.valor == valor: #se tiver valor...
+        if self.inicio.valor == valor: #se tiver valor no primeiro nó...
             self.inicio = self.inicio.proximo #... self.inicio se torna o próximo nó
             return
 
@@ -41,11 +41,11 @@ class ListaEncadeada:
         anterior = self.inicio #aponta pro 1 nó da lista
         atual = self.inicio.proximo #aponta pro 2 nó da lista
         while atual is not None and atual.valor != valor: #se ainda tiver nós na lista e o valor do nó atual for diferente do valor...
-            anterior = atual  #nó anterior vira o nó atual
-            atual = atual.proximo #o nó atual vira o próximo nó
+            anterior = atual  #nó atual passa a ser o nóa anterior
+            atual = atual.proximo #e o próximo nó passa a ser o nó atual 
 
-        if atual is not None: #se o nó tiver valor
-            anterior.proximo = atual.proximo #nó anterior aponta p o próximo nó de atual, p assim poder remover o nó atual
+        if atual is not None: #se encontramos o valor q queremos remover...
+            anterior.proximo = atual.proximo #nó anterior passa apontar por próximo nó, "pulando" o nó atual q vai ser removido da lista
         else:
             print(f"valor {valor} não encontrado na lista!\n")
 
